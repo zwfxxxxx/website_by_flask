@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+<!--    /* boostrap */-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        h1{
-            font-size: 40px;
-            font-family: Roboto;
-            font-weight:normal;
-            color: #008080;
-            text-align: center;
-        }
         #banner{
             width: 100%;
             height: 360px;
@@ -19,16 +14,32 @@
     </style>
 </head>
 <body>
-    <h1>~~~~~~~</h1>
-    <img id="bannner" src="templates/static/home.jpg">
-    <h2>----------</h2>
-    <p>
-    -------------------------------------------
-    -----------
-    ------------
-    </p>
-    <h2>-------</h2>
-    <p>all jobs</p>
-    <button>contact us</button>
+    <div class="container">
+        <h1 class="text-center" style="color: #008080;">Dedicated to Excellence in Service</h1>
+        <img id="banner" src="/static/home.jpg">
+        <h2 class="text-center" style="color: #008080;">welcome to our website</h2>
+        <p >
+            <!-- 网站介绍-->
+                We are dedicated to providing the best services to our customers. Our team is comprised of industry experts who are passionate about delivering innovative solutions tailored to your needs.
+    We believe in maintaining high standards of quality and integrity in all our operations.
+    Whether you are looking for cutting-edge technology, professional advice, or customer support, we are here to assist you every step of the way.
+    Explore our diverse range of services and discover how we can help you achieve your goals.
+    Thank you for visiting us, and we look forward to serving you!
+
+        </p>
+        <h2 class="text-center" style="color: #008080;">open positions</h2>
+        <div>
+            <!-- 职位介绍-->
+            {% for job in jobs %}
+            {% include 'job_items.html' %}
+            {% endfor %}
+
+        </div>
+        <div>
+        <button class="btn btn-primary btn-lg btn-block" style="margin-top: 40px; margin-bottom: 20px;">contact us</button> <!-- 按钮居中显示-->
+        </div>
+        <p>---copyright----</p>
+    </div>
+
 </body>
 </html>

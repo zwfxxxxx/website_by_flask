@@ -25,7 +25,7 @@ jobs = [
         "id": 4,
         "title": "Web Developer",
         "location": "Chicago, IL",
-        "salary": "$70,000"
+        "salary": "$920,00"
     }
 ]
 

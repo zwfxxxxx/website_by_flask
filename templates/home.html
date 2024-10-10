@@ -10,23 +10,30 @@
             width: 100%;
             height: 360px;
             object-fit: cover;
+<!--            margin: 20px 15px;-->
         }
     </style>
 </head>
 <body>
+    {% include 'nav.html' %}
     <div class="container">
-        <h1 class="text-center" style="color: #008080;">Dedicated to Excellence in Service</h1>
         <img id="banner" src="/static/home.jpg">
         <h2 class="text-center" style="color: #008080;">welcome to our website</h2>
-        <p >
+        <div class="row">
+            <div class="col-md-6">
+                <p style="font-size: 20px;">
             <!-- 网站介绍-->
                 We are dedicated to providing the best services to our customers. Our team is comprised of industry experts who are passionate about delivering innovative solutions tailored to your needs.
     We believe in maintaining high standards of quality and integrity in all our operations.
     Whether you are looking for cutting-edge technology, professional advice, or customer support, we are here to assist you every step of the way.
     Explore our diverse range of services and discover how we can help you achieve your goals.
     Thank you for visiting us, and we look forward to serving you!
-
-        </p>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="/static/work.jpg" style="width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px;">
+            </div>
+        </div>
         <h2 class="text-center" style="color: #008080;">open positions</h2>
         <div>
             <!-- 职位介绍-->

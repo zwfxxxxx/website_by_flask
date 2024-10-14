@@ -1,0 +1,1 @@
+mysql_url: "mysql+pymysql://root:root@localhost:3306/recruit-website-by-flask"

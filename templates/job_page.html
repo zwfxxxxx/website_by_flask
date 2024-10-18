@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+<!--    /* boostrap */-->
+    {% include 'bootstrap.html' %}
+</head>
+<body>
+	{% include 'nav.html' %}
+	<div class="container">
+		{% include'banner.html' %}
+		<h3>{{ job.title }}</h3>
+		<p>{{ job.location }}</p>
+		<h4>responsibities</h4>
+		<ul>
+			{% for skill in job.responsibities.split('\n') %}
+			<li>{{ skill }}</li>
+			{% endfor %}
+		</ul>
+		<h4>requirements</h4>
+		<ol>
+			{% for requirement in job.requirements.split('\n') %}
+			<li>{{ requirement }}</li>
+			{% endfor %}
+		</ol>
+		<h4>salary</h4>
+		<p>{{ job.salary }}</p>
+		{% include 'apply_form.html' %}
+	</div>
+
+
+</body>
+</html>

@@ -1,7 +1,25 @@
-from flask import Flask, render_template, Response, jsonify, request
+from flask import Flask, render_template, Response, jsonify, request, redirect
 from database.jobs import get_job_list, get_job_info_by_id
+from utils.mail.mail import send_mail
 
 app = Flask(__name__)
+
+
+@app.route('/mail_form')
+def mail_form():
+    return render_template('send_mail.html')
+
+
+@app.route('/send_mail', methods=['POST'])
+def send_mail_form():
+    email_address = request.form['email']
+    subject = request.form['subject']
+    message = request.form['message']
+    message = email_address + ": \n" + message
+    file = request.files.get('file')
+    if send_mail(app, subject, message, file):
+        return redirect('/')
+    return "Error sending mail", 500
 
 
 @app.route('/')

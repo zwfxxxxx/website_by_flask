@@ -21,8 +21,6 @@ def get_job_list():
     with engine.connect() as conn:
         result = conn.execute(text("SELECT * FROM jobs"))
         data = result.fetchall()
-        print(data)
-        print(type(data))
     return data
 
 

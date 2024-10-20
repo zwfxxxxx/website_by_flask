@@ -1,1 +1,10 @@
 mysql_url: "mysql+pymysql://root:root@localhost:3306/recruit-website-by-flask"
+mail:
+  MAIL_SERVER: "smtp.qq.com"
+  MAIL_PORT: 465
+  MAIL_USERNAME: "1370105382@qq.com"
+  MAIL_PASSWORD: "awwjiusmvdfojgje"
+  MAIL_RECIPIENTS: "2045464709@qq.com"
+  MAIL_USE_TLS: False
+  MAIL_USE_SSL: True
+

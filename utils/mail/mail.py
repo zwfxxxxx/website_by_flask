@@ -5,7 +5,6 @@ from flask_mail import Mail, Message
 def make_mail(app):
     config = get_config()
     mail_config = config.get('mail', {})
-    print("mail_config", mail_config)
     app.config.update(mail_config)
     _mail = Mail(app)
     return _mail

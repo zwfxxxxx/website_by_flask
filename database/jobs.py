@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
-from config import get_config
+from config import config
 
-mysql_url = get_config().get('mysql_url')
+mysql_url = config.get('mysql_url')
 
 
 def get_engine():

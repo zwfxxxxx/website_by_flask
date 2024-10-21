@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-<!--    /* boostrap */-->
     {% include 'bootstrap.html' %}
-
 </head>
+
 <body>
     {% include 'nav.html' %}
+    {% include 'tips.html' %}
     <div class="container">
         {% include'banner.html' %}
         <h2 class="text-center" style="color: #008080;">welcome to our website</h2>
@@ -38,8 +38,7 @@
         <div class="mt-5">
             <a href="/mail_form" class="btn btn-primary btn-block">Contact us</a>
         </div>
+        {% include 'footer.html' %}
     </div>
-    {% include 'footer.html' %}
-
 </body>
 </html>

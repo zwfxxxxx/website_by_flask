@@ -1,8 +1,13 @@
-from flask import Flask, render_template, Response, jsonify, request, redirect
+import os
+
+from flask import Flask, render_template, Response, jsonify, request, redirect, flash
 from database.jobs import get_job_list, get_job_info_by_id
-from utils.mail.mail import send_mail
+from utils.mail.mail import make_mail, send_mail
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)  # 生成一个随机的秘密密钥
+
+mail = make_mail(app)
 
 
 @app.route('/mail_form')
@@ -17,8 +22,10 @@ def send_mail_form():
     message = request.form['message']
     message = email_address + ": \n" + message
     file = request.files.get('file')
-    if send_mail(app, subject, message, file):
+    if send_mail(mail, subject, message, file):
+        flash("Email sent successfully", "success")
         return redirect('/')
+    flash("Error sending mail", "danger")
     return "Error sending mail", 500
 
 
@@ -46,13 +53,13 @@ def job(job_id):
 def job_apply(job_id):
     data = request.form
     file = request.files.get('file')
-    print(data, file)
     if not file:
         return "File not loaded", 400
 
     file.save(f"uploads/{file.filename}")
-
-    return render_template('job_apply', data=data, file=file.filename)
+    if send_mail(mail, data.get('name')+data.get('email')+'简历', data.get('personal_statement'), file):
+        return render_template('job_apply_success.html', data=data, file=file.filename)
+    return "Error sending mail", 500
 
 
 if __name__ == "__main__":

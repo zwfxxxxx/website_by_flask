@@ -4,3 +4,7 @@ pyyaml~=6.0.2
 sqlalchemy~=2.0.35
 PyMySQL~=1.1.1
 Flask_Mail~=0.10.0
+celery~=5.4.0
+gevent~=24.10.3
+redis~=5.2.0
+

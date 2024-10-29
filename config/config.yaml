@@ -7,4 +7,7 @@ mail:
   MAIL_RECIPIENTS: "2045464709@qq.com"
   MAIL_USE_TLS: False
   MAIL_USE_SSL: True
-
+celery:
+  broker_url: "redis://localhost:6379/1"
+  result_backend: "redis://localhost:6379/2"
+  task_ignore_result: True

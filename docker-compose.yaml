@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web_server:
+    image: website_by_flask_test:v1.0
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "flask_web_site_redis"  # 确保 redis 在 web_server 启动之前启动
+      - "flask_web_site_mysql"  # 确保 mysql 在 web_server 启动之前启v动
+  web_celery:
+    image: website_by_flask_test:v1.0
+    command: celery -A utils.mail.mail_task.celery worker --loglevel=info -P gevent
+  flask_web_site_redis:
+    container_name: flask_web_site_redis
+    image: redis
+    ports:
+      - "6379:6379"
+  flask_web_site_mysql:
+    container_name: flask_web_site_mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql  # 使用数据卷保存 MySQL 数据
+volumes:
+  mysql_data:  # 定义 MySQL 数据卷

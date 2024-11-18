@@ -1,4 +1,4 @@
-mysql_url: "mysql+pymysql://root:root@localhost:3306/recruit-website-by-flask"
+mysql_url: "mysql+pymysql://root:root@flask_web_site_mysql:3306/recruit-website-by-flask"
 mail:
   MAIL_SERVER: "smtp.qq.com"
   MAIL_PORT: 465
@@ -8,6 +8,6 @@ mail:
   MAIL_USE_TLS: False
   MAIL_USE_SSL: True
 celery:
-  broker_url: "redis://localhost:6379/1"
-  result_backend: "redis://localhost:6379/2"
+  broker_url: "redis://flask_web_site_redis:6379/1"
+  result_backend: "redis://flask_web_site_redis:6379/2"
   task_ignore_result: True
